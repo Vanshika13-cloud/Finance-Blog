@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Latte Factor is a myth — Master Your Finances</title>
+<style>
+  :root{
+    --forest:#1f3d33;
+    --forest-deep:#16302a;
+    --cream:#fbfaf6;
+    --gold:#d9a441;
+    --gold-deep:#b9812c;
+    --ink:#1c1c1a;
+    --rust:#a24a3a;
+    --paper:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Georgia','Iowan Old Style', serif;
+    background:var(--cream);
+    color:var(--ink);
+  }
+  a{color:inherit; text-decoration:none;}
+
+  header.nav{
+    background:var(--forest);
+    padding:22px 48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{
+    width:22px;height:22px;border-radius:50%;
+    background: conic-gradient(var(--gold) 0deg 180deg, var(--cream) 180deg 360deg);
+    border:1px solid rgba(0,0,0,0.15);
+  }
+  .brand-name{color:var(--cream); font-size:22px; font-weight:700;}
+  nav.links{display:flex; gap:36px;}
+  nav.links a{color:var(--cream); font-size:15px; font-weight:500; opacity:0.92;}
+  nav.links a:hover{opacity:1; text-decoration:underline;}
+  .join-btn{
+    background:var(--gold);
+    color:var(--forest-deep);
+    font-weight:700;
+    font-size:14px;
+    padding:12px 22px;
+    border-radius:999px;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+  }
+  .join-btn:hover{background:var(--gold-deep); color:var(--cream);}
+  .gold-strip{height:6px; background:var(--gold);}
+
+  /* ARTICLE HERO */
+  .article-hero{
+    background:var(--forest);
+    padding:64px 24px 80px;
+    text-align:center;
+  }
+  .breadcrumb{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:13px;
+    color:rgba(251,250,246,0.7);
+    margin-bottom:22px;
+  }
+  .breadcrumb a:hover{color:var(--gold);}
+  .tag{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--forest-deep);
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.5px;
+    padding:8px 16px;
+    border-radius:6px;
+    margin-bottom:26px;
+    transform:rotate(-1.5deg);
+  }
+  .article-hero h1{
+    color:var(--cream);
+    font-size:52px;
+    line-height:1.15;
+    max-width:820px;
+    margin:0 auto 24px;
+  }
+  .article-hero .dek{
+    color:rgba(251,250,246,0.85);
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:19px;
+    line-height:1.6;
+    max-width:640px;
+    margin:0 auto 30px;
+  }
+  .byline{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:14px;
+    color:rgba(251,250,246,0.65);
+  }
+  .byline strong{color:var(--gold);}
+
+  /* BODY */
+  .article-wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:64px 24px 100px;
+  }
+  .article-wrap p{
+    font-size:19px;
+    line-height:1.8;
+    margin:0 0 26px;
+    color:#26261f;
+  }
+  .article-wrap h2{
+    font-size:30px;
+    margin:56px 0 20px;
+    color:var(--forest);
+  }
+  .drop{
+    font-size:24px;
+    line-height:1.6;
+    color:var(--forest);
+    font-style:italic;
+    margin:0 0 34px;
+  }
+
+  /* CALLOUT TABLE - matches the homepage stat card style */
+  .callout{
+    background:var(--forest);
+    border-radius:20px;
+    padding:8px;
+    margin:44px 0;
+  }
+  .callout-inner{
+    background:var(--paper);
+    border-radius:14px;
+    padding:32px 36px;
+  }
+  .callout-label{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:1px;
+    color:var(--rust);
+    margin-bottom:20px;
+  }
+  .callout-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:14px 0;
+    border-bottom:1px dashed #c9c4b6;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:16px;
+  }
+  .callout-row:last-child{border-bottom:none;}
+  .callout-row span:last-child{font-weight:700; color:var(--forest);}
+
+  blockquote{
+    border-left:4px solid var(--gold);
+    margin:40px 0;
+    padding:6px 0 6px 28px;
+    font-size:22px;
+    font-style:italic;
+    color:var(--forest);
+  }
+
+  /* NEWSLETTER CTA */
+  .cta-card{
+    max-width:760px;
+    margin:0 auto 100px;
+    background:var(--forest);
+    border-radius:24px;
+    padding:48px;
+    text-align:center;
+  }
+  .cta-card h3{
+    color:var(--cream);
+    font-size:28px;
+    margin:0 0 14px;
+  }
+  .cta-card p{
+    color:rgba(251,250,246,0.8);
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:16px;
+    margin:0 0 26px;
+  }
+  .cta-form{
+    display:flex;
+    gap:10px;
+    max-width:420px;
+    margin:0 auto;
+  }
+  .cta-form input{
+    flex:1;
+    padding:14px 18px;
+    border-radius:999px;
+    border:none;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:15px;
+  }
+  .cta-form button{
+    background:var(--gold);
+    color:var(--forest-deep);
+    font-weight:700;
+    border:none;
+    padding:14px 24px;
+    border-radius:999px;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:15px;
+    cursor:pointer;
+  }
+  .cta-form button:hover{background:var(--gold-deep); color:var(--cream);}
+
+  @media (max-width:700px){
+    .article-hero h1{font-size:34px;}
+    .article-hero .dek{font-size:16px;}
+    .article-wrap p{font-size:17px;}
+    .cta-form{flex-direction:column;}
+    nav.links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <span class="brand-name">Master Your Finances</span>
+  </div>
+  <nav class="links">
+    <a href="index.html">Read</a>
+    <a href="#">Numbers</a>
+    <a href="#">Topics</a>
+    <a href="#">Newsletter</a>
+  </nav>
+  <a href="#" class="join-btn">Join free</a>
+</header>
+<div class="gold-strip"></div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Money Mindset</div>
+  <span class="tag">MONEY MINDSET</span>
+  <h1>The Latte Factor is a myth (but the math still works in your favor)</h1>
+  <p class="dek">You don't need to give up anything you love to build wealth. What actually moves the needle is smaller, steadier, and far less dramatic than "cut the coffee" — and we walk through exactly what that looks like, dollar by dollar.</p>
+  <p class="byline">By <strong>The Editorial Team</strong> · 7 min read</p>
+</section>
+
+<article class="article-wrap">
+
+  <p class="drop">Somewhere along the way, personal finance got obsessed with coffee. Skip the latte, the story goes, and you'll retire a millionaire. It's a tidy idea. It's also mostly wrong — not because the math is bad, but because the math was never really about coffee.</p>
+
+  <p>The "Latte Factor" was popularized as a way to make saving feel achievable: find one small daily expense, cut it, and watch the savings compound. The problem is that the emotional cost of cutting something you genuinely enjoy rarely survives contact with real life. Most people who swear off lattes are back at the counter within a month, feeling like they failed at saving money — when really, they just picked the wrong lever.</p>
+
+  <h2>The math was never the myth</h2>
+
+  <p>Here's the part worth keeping: the compounding math behind the Latte Factor is completely real. Small, consistent amounts of money, invested instead of spent, do grow into meaningful sums over time. That part isn't the myth. The myth is the idea that the "small amount" has to come from the one thing that makes your Tuesday morning bearable.</p>
+
+  <div class="callout">
+    <div class="callout-inner">
+      <div class="callout-label">YOUR $10/DAY, TRACKED</div>
+      <div class="callout-row"><span>Coffee habit, invested instead</span><span>+$3,650/yr</span></div>
+      <div class="callout-row"><span>After 10 years at 7% avg return</span><span>≈ $53,900</span></div>
+      <div class="callout-row"><span>After 25 years at 7% avg return</span><span>≈ $246,000</span></div>
+      <div class="callout-row"><span>Feeling from skipping zero lattes</span><span>Priceless-ish</span></div>
+    </div>
+  </div>
+
+  <p>Those numbers are legitimate. $10 a day is $3,650 a year, and $3,650 a year invested at a 7% average annual return compounds into real money over a decade or two. But notice what the table doesn't require: it doesn't require you to skip a single latte. It just requires $10 a day to exist somewhere — and for most people, that $10 is sitting in a dozen smaller leaks that never got named "the problem."</p>
+
+  <blockquote>"Cut the coffee" is a headline. Finding your own $10 a day is the actual assignment.</blockquote>
+
+  <h2>Where the real $10 a day usually hides</h2>
+
+  <p>In practice, the money is rarely in the one purchase that brings you joy. It's in the subscription you forgot to cancel, the delivery fee tacked onto an order you'd have made anyway, the automatic upgrade you didn't ask for, or the small percentage lost to a high-fee fund you haven't looked at in years. None of these come with the emotional weight of "giving something up," which is exactly why they're easier to redirect.</p>
+
+  <p>The goal isn't austerity. It's attention. Once you find your own version of that $10 a day — wherever it's actually hiding — the compounding math from the table above applies just the same, whether it came from coffee or from a subscription you're not using.</p>
+
+  <h2>Small and steady beats sudden and dramatic</h2>
+
+  <p>The other reason the Latte Factor endures as an idea, even as a myth, is that it points at something true: consistency compounds. A dramatic one-time cut rarely survives; a small, steady redirection usually does, because it doesn't ask you to change how you live — only where a small amount of money goes each month.</p>
+
+  <p>So keep the latte, if the latte is worth it to you. Just don't let it distract you from finding the $10 a day that isn't.</p>
+
+</article>
+
+<div class="cta-card">
+  <h3>Get one story like this every week</h3>
+  <p>No spam, no hype — just clear thinking about money, delivered every Friday.</p>
+  <form class="cta-form" onsubmit="event.preventDefault();">
+    <input type="email" placeholder="you@email.com" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</div>
+
+</body>
+</html>
