@@ -682,11 +682,52 @@
       <span class="kicker">The Weekly Ledger</span>
       <h2>One email. Every Tuesday. Actually worth opening.</h2>
       <p>A short, well-written note on one money idea worth understanding — no spam, no upsells, unsubscribe in one click.</p>
-      <form class="note-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='You\'re in ✓';">
-        <input type="email" placeholder="you@somewhere.com" required aria-label="Email address">
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="fine">Free forever. No spam, obviously.</p>
+     <form class="note-form" id="subscribeForm">
+  <input type="email" id="subscribeEmail" placeholder="you@somewhere.com" required aria-label="Email address">
+  <button type="submit" id="subscribeBtn">Subscribe</button>
+</form>
+<p class="fine" id="subscribeStatus">Free forever. No spam, obviously.</p>
+
+<script>
+  const form = document.getElementById('subscribeForm');
+  const emailInput = document.getElementById('subscribeEmail');
+  const btn = document.getElementById('subscribeBtn');
+  const status = document.getElementById('subscribeStatus');
+
+  // Replace YOUR_FORM_ID with the id Formspree gives you, e.g. "xyzabcde"
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (res.ok) {
+        btn.textContent = "You're in ✓";
+        status.textContent = 'Thanks — check your inbox for a confirmation.';
+        emailInput.value = '';
+        emailInput.disabled = true;
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Subscribe';
+      status.textContent = "Something went wrong — try again in a moment.";
+      status.style.color = '#a34a2c';
+    }
+  });
+</script>
     </div>
   </div>
 </section>
