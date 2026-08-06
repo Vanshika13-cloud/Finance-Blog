@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money, Sorted: A No-Shame Guide to Your 20s — Master Your Finances</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest-deep:#1f5c42;
+    --forest:#2f8a5f;
+    --forest-soft:#57b384;
+    --forest-pale:#e6f5ec;
+    --brown-deep:#2b1810;
+    --brown-rich:#5c3a24;
+    --brown-warm:#7a4e2e;
+    --white:#ffffff;
+    --paper:#fbfbf9;
+    --ink:#22140c;
+    --gold:#c9a24b;
+    --gold-light:#e3c171;
+    --shadow: rgba(31,92,66,.22);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background: var(--white);
+    color: var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+
+  /* ===== nav (matches homepage) ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background: var(--forest-deep);
+    border-bottom: 3px solid var(--gold);
+  }
+  .nav-wrap{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 32px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    color: var(--white);
+    font-size:1.3rem;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .logo .leaf{ width:24px; height:24px; color: var(--gold-light); }
+  nav.links{ display:flex; gap:32px; }
+  nav.links a{
+    color: rgba(255,255,255,.85);
+    font-size:.92rem;
+    font-weight:500;
+    position:relative;
+    padding-bottom:4px;
+    transition:color .25s ease;
+  }
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:0;
+    width:0%; height:2px; background: var(--gold);
+    transition:width .3s ease;
+  }
+  nav.links a:hover{ color:var(--gold-light); }
+  nav.links a:hover::after{ width:100%; }
+  .nav-cta{
+    background: var(--gold);
+    color: var(--brown-deep);
+    padding:9px 20px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:.85rem;
+    box-shadow:0 4px 0 var(--brown-deep);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 6px 0 var(--brown-deep); }
+
+  /* ===== article hero ===== */
+  .article-hero{
+    background: linear-gradient(180deg, var(--forest-deep), var(--forest) 75%, var(--forest-soft));
+    color: var(--white);
+    padding: 70px 32px 64px;
+    text-align:center;
+  }
+  .hero-wrap{ max-width:760px; margin:0 auto; }
+  .kicker-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.35);
+    color: var(--gold-light);
+    padding:6px 14px;
+    border-radius:100px;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .kicker-pill::before{ content:"●"; color:#bdf0d1; font-size:.6rem; }
+  .stamp{
+    display:inline-flex; align-items:center; justify-content:center;
+    background: var(--gold);
+    color: var(--brown-deep);
+    font-weight:700;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:7px 16px;
+    border-radius:6px;
+    transform: rotate(-3deg);
+    box-shadow:0 3px 0 #8a6d2f;
+    margin-bottom:20px;
+  }
+  .article-hero h1{
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height:1.1;
+    margin-bottom:20px;
+  }
+  .article-hero p.sub{
+    font-size:1.1rem;
+    color: rgba(255,255,255,.88);
+    max-width:56ch;
+    margin:0 auto;
+  }
+  .hero-meta{
+    margin-top:26px;
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    color: rgba(255,255,255,.65);
+    font-size:.85rem;
+  }
+
+  /* ===== article body ===== */
+  .article{ max-width:720px; margin:0 auto; padding:64px 32px 20px; }
+  .article h2{
+    font-size:1.7rem;
+    color: var(--brown-deep);
+    margin:52px 0 14px;
+  }
+  .article h2 .num{
+    display:block;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:.78rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color: var(--forest);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .article p{ font-size:1.02rem; color:#3a3128; margin-bottom:16px; }
+  .article ul{ margin:0 0 16px; padding-left:20px; }
+  .article li{ margin-bottom:8px; font-size:1.02rem; color:#3a3128; }
+
+  .pullcard{
+    background: var(--forest-pale);
+    border-left:4px solid var(--gold);
+    border-radius:14px;
+    padding:20px 24px;
+    margin:26px 0;
+  }
+  .pullcard .label{
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color: var(--brown-warm);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .pullcard p{ margin:0; color: var(--brown-rich); font-size:.98rem; }
+
+  .divider{ border:none; border-top:1px dashed rgba(43,24,16,.18); margin:44px 0; }
+
+  /* ===== ledger card (reused from homepage) ===== */
+  .ledger-card{
+    background: var(--white);
+    border:1px solid var(--forest-pale);
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 10px 30px rgba(43,24,16,.06);
+  }
+  .ledger-title{ font-size:.75rem; text-transform:uppercase; letter-spacing:.1em; color: var(--brown-warm); font-weight:700; margin-bottom:14px; }
+  .ledger-row{ display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px dashed rgba(43,24,16,.2); font-size:.92rem; }
+  .ledger-row:last-child{ border-bottom:none; }
+  .ledger-row .amt{ font-weight:700; color: var(--forest); font-family:'Fraunces',serif; }
+
+  /* ===== tool section (styled like the featured/stats blocks) ===== */
+  .tool-section{
+    background: var(--forest-deep);
+    border-radius:28px;
+    padding:52px 40px;
+    margin:56px 0;
+    color: var(--white);
+    box-shadow:0 20px 50px var(--shadow);
+  }
+  .tool-section .stamp{ margin-bottom:16px; }
+  .tool-section h2{ color:#fff; font-size:1.7rem; margin:0 0 10px; }
+  .tool-section .tool-sub{
+    color: rgba(255,255,255,.82);
+    font-size:.98rem;
+    max-width:56ch;
+    margin:0 0 30px;
+  }
+
+  .tool-card{
+    background: var(--white);
+    border-radius:20px;
+    padding:30px;
+  }
+  .control{ margin-bottom:24px; }
+  .control:last-of-type{ margin-bottom:0; }
+  .control-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
+  .control-label{
+    font-size:.78rem; letter-spacing:.06em; text-transform:uppercase;
+    color: var(--brown-warm); font-weight:700;
+  }
+  .control-value{
+    font-family:'Fraunces', serif; font-weight:700;
+    font-size:1.05rem; color: var(--forest-deep);
+  }
+  input[type="range"]{
+    -webkit-appearance:none; width:100%; height:6px; border-radius:3px;
+    background: var(--forest-pale); outline:none;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none; width:20px; height:20px; border-radius:50%;
+    background: var(--gold); border:3px solid var(--white);
+    box-shadow:0 0 0 1.5px var(--brown-warm); cursor:pointer;
+  }
+  input[type="range"]::-moz-range-thumb{
+    width:20px; height:20px; border-radius:50%;
+    background: var(--gold); border:3px solid var(--white);
+    box-shadow:0 0 0 1.5px var(--brown-warm); cursor:pointer;
+  }
+
+  .tool-divider{ border-top:1px dashed rgba(43,24,16,.18); margin:26px 0; }
+
+  .results{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .result-box{ background: var(--forest-pale); border-radius:14px; padding:18px; }
+  .result-box .rk{ font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color: var(--brown-warm); font-weight:700; margin-bottom:6px; }
+  .result-box .rv{ font-family:'Fraunces', serif; font-weight:700; color: var(--forest-deep); font-size:1.5rem; }
+  .result-box.wide{ grid-column:1 / -1; }
+
+  .tool-footnote{ color: rgba(255,255,255,.6); font-size:.78rem; margin-top:18px; }
+
+  /* ===== checklist (styled like homepage cards) ===== */
+  .checklist-title{ font-size:1.5rem; color: var(--brown-deep); margin:48px 0 18px; }
+  .check-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .check-card{
+    background:#fff;
+    border:1px solid var(--forest-pale);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 6px 0 rgba(43,24,16,.05), 0 10px 24px rgba(43,24,16,.05);
+  }
+  .check-num{
+    width:30px; height:30px; border-radius:50%;
+    background: var(--forest-pale); color: var(--forest-deep);
+    font-family:'Fraunces', serif; font-weight:700; font-size:.9rem;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:14px;
+  }
+  .check-card h3{ font-size:1.05rem; color: var(--brown-deep); margin-bottom:8px; }
+  .check-card p{ font-size:.88rem; color: var(--brown-warm); margin:0; }
+
+  /* ===== closing note (styled like homepage newsletter block) ===== */
+  .note{
+    background: var(--forest-pale);
+    border:2px solid var(--forest);
+    border-radius:24px;
+    padding:44px;
+    position:relative;
+    margin:56px 0 8px;
+  }
+  .note::before{
+    content:""; position:absolute; inset:8px;
+    border:1px dashed var(--gold); border-radius:16px; pointer-events:none;
+  }
+  .note p{ color: var(--brown-rich); font-size:1rem; margin:0; position:relative; }
+  .note .sign{
+    margin-top:14px; font-family:'Fraunces', serif; font-style:italic;
+    color: var(--forest-deep); font-size:1rem; position:relative;
+  }
+
+  /* ===== footer (matches homepage) ===== */
+  footer{ background: var(--forest-deep); color: rgba(255,255,255,.75); padding:56px 32px 30px; margin-top:40px; }
+  .foot-wrap{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap:36px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    padding-bottom:36px; margin-bottom:22px;
+  }
+  footer h4{ color: var(--gold-light); font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:16px;}
+  footer ul{ list-style:none; }
+  footer li{ margin-bottom:10px; font-size:.88rem; }
+  footer li a:hover{ color: var(--gold-light); }
+  .foot-bottom{
+    max-width:1180px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:.8rem; color: rgba(255,255,255,.55); flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width:900px){
+    nav.links{ display:none; }
+    .check-grid{ grid-template-columns:1fr; }
+    .results{ grid-template-columns:1fr; }
+    .foot-wrap{ grid-template-columns:1fr 1fr; }
+    .tool-section{ padding:34px 22px; }
+  }
+
+  a:focus-visible, input:focus-visible{ outline:3px solid var(--forest); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a class="logo" href="index.html">
+      <svg class="leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6 2 3 7 3 12C3 17 7 21 12 21C12 21 12 12 12 2Z" fill="currentColor" opacity="0.9"/>
+        <path d="M12 2C18 2 21 7 21 12C21 17 17 21 12 21" stroke="currentColor" stroke-width="1.4" fill="none"/>
+      </svg>
+      Master Your Finances
+    </a>
+    <nav class="links">
+      <a href="index.html#read">Read</a>
+      <a href="index.html#numbers">Numbers</a>
+      <a href="index.html#topics">Topics</a>
+      <a href="index.html#note">Newsletter</a>
+    </nav>
+    <a class="nav-cta" href="index.html#note">Join free</a>
+  </div>
+</header>
+
+<section class="article-hero">
+  <div class="hero-wrap">
+    <div class="kicker-pill">Money Mindset · 8 min read</div>
+    <div class="stamp">Financial Wellness</div>
+    <h1>Money, Sorted: A No-Shame Guide to Your 20s</h1>
+    <p class="sub">You don't need a finance degree, a six-figure salary, or a spreadsheet obsession to get this right. You need five habits, one honest look at where your money goes, and a plan that runs quietly in the background while you live your life.</p>
+    <div class="hero-meta">
+      <span>Money 101</span>
+      <span>·</span>
+      <span>Built for real budgets</span>
+    </div>
+  </div>
+</section>
+
+<article class="article">
+
+  <p>Somewhere between "get a job" and "figure out retirement," most of us never got the manual. Financial advice either assumes you're already wealthy, or it shames you for the coffee you bought this morning. Neither is useful. So here's the version built for where you actually are: early in your career, juggling rent and student loans and a hundred other priorities, trying to build something steady without giving up your twenties to do it.</p>
+
+  <hr class="divider">
+
+  <h2><span class="num">01 — Foundation</span>Start with a system, not a budget</h2>
+  <p>"Budget" tends to trigger images of restriction. Try thinking of it instead as a system that tells your money where to go before you're tempted to wonder where it went. The simplest version that actually sticks is a three-bucket split:</p>
+  <ul>
+    <li><strong>Needs (about 50%):</strong> rent, groceries, utilities, minimum debt payments, insurance.</li>
+    <li><strong>Wants (about 30%):</strong> the fun stuff — dinners out, travel, subscriptions, hobbies.</li>
+    <li><strong>Future you (about 20%):</strong> savings, investing, extra debt payoff.</li>
+  </ul>
+  <p>The exact percentages matter less than the habit of splitting on purpose. If rent alone eats 45% of your income, that's real and worth knowing — it just means the other buckets flex to fit.</p>
+
+  <div class="pullcard">
+    <div class="label">Quick start</div>
+    <p>Open a second checking account this week and set up an automatic transfer for the day after payday. Money that moves before you see it is money you won't accidentally spend.</p>
+  </div>
+
+  <h2><span class="num">02 — Safety Net</span>Build calm before you build wealth</h2>
+  <p>An emergency fund isn't glamorous, but it's the single thing that keeps a bad month from becoming a bad year. Without one, a broken laptop or a surprise car repair goes straight onto a credit card — and now you're paying interest on top of the original cost.</p>
+  <p>Aim for one month of essential expenses first. That's the number that turns "emergency" into "annoying inconvenience." From there, build toward three to six months, ideally sitting in a high-yield savings account so it's earning something while it waits.</p>
+
+  <h2><span class="num">03 — Free Money</span>Don't leave your employer's match on the table</h2>
+  <p>If your job offers a 401(k) match, that's part of your compensation — declining it is like turning down a raise. A common match is 50 cents on the dollar up to 6% of your salary. Contributing enough to capture the full match should usually come before extra debt payoff or additional saving, because no investment guarantees a comparable return.</p>
+  <p>No employer plan, or already capturing the match? A Roth IRA is worth a look next: you contribute after-tax dollars now, and in exchange, growth and qualified withdrawals in retirement are tax-free. In your twenties, with decades of compounding ahead and likely a lower tax bracket than you'll have later, that trade tends to favor you.</p>
+
+  <div class="pullcard">
+    <div class="label">Why early matters</div>
+    <p>Money invested at 22 has roughly twice as long to compound as money invested at 35. Time in the market does more heavy lifting than the amount you start with.</p>
+  </div>
+
+  <h2><span class="num">04 — Debt</span>Debt isn't a moral failing</h2>
+  <p>Student loans, a credit card balance, a car payment — carrying debt doesn't mean you did something wrong. It means you're paying for something over time, same as everyone else. What matters now is a plan:</p>
+  <ul>
+    <li><strong>List it out:</strong> balance, interest rate, and minimum payment for everything you owe.</li>
+    <li><strong>Keep every minimum current</strong> — missed payments damage credit far more than the balance itself.</li>
+    <li><strong>Then choose a method:</strong> highest interest rate first saves the most money; smallest balance first builds momentum faster. Either is valid — the one you'll stick with wins.</li>
+  </ul>
+
+  <h2><span class="num">05 — Credit</span>Your credit score is a quiet background project</h2>
+  <p>You don't need to think about your credit score constantly, but a few habits keep it working in your favor without much effort: pay on time, every time; keep your card balances well under the limit; and avoid opening a wave of new accounts at once. A solid score later means better rates on a car, an apartment, or eventually a mortgage — it's worth protecting quietly now.</p>
+
+  <h2><span class="num">06 — Negotiation</span>Ask for the number, not permission</h2>
+  <p>Salary negotiation feels riskier than it is. Companies generally expect it and build room for it into their offers. Before accepting a role or a raise, look up the market range for your position and location, then ask for a number at the top of that range with a short, confident reason — a specific skill, a comparable offer, or added scope. The worst realistic outcome is "no," and you're still exactly where you started.</p>
+
+  <section class="tool-section" id="tool">
+    <div class="stamp">Try It</div>
+    <h2>What could your spare $10/day become?</h2>
+    <p class="tool-sub">Move the sliders to match your own numbers. This is the same "latte factor" math from our ledger above, minus the guilt trip — just an honest look at what steady, boring, automatic investing can do over time.</p>
+
+    <div class="tool-card">
+      <div class="control">
+        <div class="control-top">
+          <span class="control-label">Amount redirected / day</span>
+          <span class="control-value" id="dailyVal">$10</span>
+        </div>
+        <input type="range" id="daily" min="1" max="25" step="1" value="10">
+      </div>
+
+      <div class="control">
+        <div class="control-top">
+          <span class="control-label">Years invested</span>
+          <span class="control-value" id="yearsVal">10 yrs</span>
+        </div>
+        <input type="range" id="years" min="1" max="40" step="1" value="10">
+      </div>
+
+      <div class="control">
+        <div class="control-top">
+          <span class="control-label">Average annual return</span>
+          <span class="control-value" id="rateVal">7%</span>
+        </div>
+        <input type="range" id="rate" min="3" max="10" step="0.5" value="7">
+      </div>
+
+      <div class="tool-divider"></div>
+
+      <div class="results">
+        <div class="result-box">
+          <div class="rk">Invested per year</div>
+          <div class="rv" id="perYear">$3,650</div>
+        </div>
+        <div class="result-box">
+          <div class="rk">Total contributed</div>
+          <div class="rv" id="contributed">$36,500</div>
+        </div>
+        <div class="result-box wide">
+          <div class="rk">Projected value</div>
+          <div class="rv" id="futureValue" style="font-size:2rem;">$53,900</div>
+        </div>
+      </div>
+    </div>
+    <p class="tool-footnote">Illustrative only — assumes monthly contributions and a steady average return, which real markets never quite deliver. Not investment advice.</p>
+  </section>
+
+  <h2 class="checklist-title">This week, do these three things</h2>
+  <div class="check-grid">
+    <div class="check-card">
+      <div class="check-num">1</div>
+      <h3>Open a high-yield savings account</h3>
+      <p>Even if you fund it with $25 to start. That's where your emergency fund lives from now on.</p>
+    </div>
+    <div class="check-card">
+      <div class="check-num">2</div>
+      <h3>Check your 401(k) match</h3>
+      <p>Log into your benefits portal and confirm you're contributing enough to get the full employer match.</p>
+    </div>
+    <div class="check-card">
+      <div class="check-num">3</div>
+      <h3>Automate one transfer</h3>
+      <p>Set a recurring transfer for the day after payday, even if it's small. Consistency beats size.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <p>None of this requires perfection. It requires a system that runs even on the weeks you don't feel like thinking about money — which, let's be honest, is most weeks. Start with one habit from this list. The rest can wait until it's a habit too.</p>
+    <p class="sign">— Money Mindset</p>
+  </div>
+
+</article>
+
+<footer>
+  <div class="foot-wrap">
+    <div>
+      <a class="logo" href="index.html" style="margin-bottom:14px; display:inline-flex;">
+        <svg class="leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:22px;height:22px;">
+          <path d="M12 2C6 2 3 7 3 12C3 17 7 21 12 21C12 21 12 12 12 2Z" fill="currentColor" opacity="0.9"/>
+        </svg>
+        Master Your Finances
+      </a>
+      <p style="max-width:280px; font-size:.88rem; margin-top:10px;">Straightforward writing about money, for people who'd rather feel in control of it than mystified by it.</p>
+    </div>
+    <div>
+      <h4>Topics</h4>
+      <ul>
+        <li><a href="index.html#topics">Investing</a></li>
+        <li><a href="index.html#topics">Budgeting</a></li>
+        <li><a href="index.html#topics">Debt</a></li>
+        <li><a href="index.html#topics">Taxes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Write for us</a></li>
+        <li><a href="#">Archive</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Stay in touch</h4>
+      <ul>
+        <li><a href="index.html#note">Newsletter</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Master Your Finances. Not financial advice, just good conversation.</span>
+    <span>Made with a little too much coffee ☕</span>
+  </div>
+</footer>
+
+<script>
+  const dailyEl = document.getElementById('daily');
+  const yearsEl = document.getElementById('years');
+  const rateEl = document.getElementById('rate');
+
+  const dailyVal = document.getElementById('dailyVal');
+  const yearsVal = document.getElementById('yearsVal');
+  const rateVal = document.getElementById('rateVal');
+
+  const perYearEl = document.getElementById('perYear');
+  const contributedEl = document.getElementById('contributed');
+  const fvEl = document.getElementById('futureValue');
+
+  function fmt(n){
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function calculate(){
+    const daily = parseFloat(dailyEl.value);
+    const years = parseInt(yearsEl.value);
+    const ratePct = parseFloat(rateEl.value);
+
+    dailyVal.textContent = '$' + daily;
+    yearsVal.textContent = years + (years === 1 ? ' yr' : ' yrs');
+    rateVal.textContent = ratePct + '%';
+
+    const monthly = daily * 365 / 12;
+    const perYear = monthly * 12;
+    const totalContributed = perYear * years;
+
+    const i = (ratePct / 100) / 12;
+    const n = years * 12;
+    let fv;
+    if (i === 0) {
+      fv = monthly * n;
+    } else {
+      fv = monthly * (((Math.pow(1 + i, n) - 1) / i));
+    }
+
+    perYearEl.textContent = fmt(perYear);
+    contributedEl.textContent = fmt(totalContributed);
+    fvEl.textContent = fmt(fv);
+  }
+
+  [dailyEl, yearsEl, rateEl].forEach(el => el.addEventListener('input', calculate));
+  calculate();
+</script>
+
+</body>
+</html>
