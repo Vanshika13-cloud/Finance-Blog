@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build a Budget You'll Actually Stick With — Master Your Finances</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest-deep:#1f5c42;
+    --forest:#2f8a5f;
+    --forest-soft:#57b384;
+    --forest-pale:#e6f5ec;
+    --brown-deep:#2b1810;
+    --brown-rich:#5c3a24;
+    --brown-warm:#7a4e2e;
+    --white:#ffffff;
+    --paper:#fbfbf9;
+    --ink:#22140c;
+    --gold:#c9a24b;
+    --gold-light:#e3c171;
+    --blue:#8fbede;
+    --blue-deep:#4f7fa0;
+    --blue-pale:#eaf4fa;
+    --pink:#f0b7cb;
+    --pink-deep:#c8779c;
+    --pink-pale:#fdeef4;
+    --shadow: rgba(31,92,66,.22);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background: var(--white);
+    color: var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+
+  /* ===== nav (matches homepage) ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background: var(--forest-deep);
+    border-bottom: 3px solid var(--gold);
+  }
+  .nav-wrap{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 32px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    color: var(--white);
+    font-size:1.3rem;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .logo .leaf{ width:24px; height:24px; color: var(--gold-light); }
+  nav.links{ display:flex; gap:32px; }
+  nav.links a{
+    color: rgba(255,255,255,.85);
+    font-size:.92rem;
+    font-weight:500;
+    position:relative;
+    padding-bottom:4px;
+    transition:color .25s ease;
+  }
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:0;
+    width:0%; height:2px; background: var(--gold);
+    transition:width .3s ease;
+  }
+  nav.links a:hover{ color:var(--gold-light); }
+  nav.links a:hover::after{ width:100%; }
+  .nav-cta{
+    background: var(--gold);
+    color: var(--brown-deep);
+    padding:9px 20px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:.85rem;
+    box-shadow:0 4px 0 var(--brown-deep);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 6px 0 var(--brown-deep); }
+
+  /* ===== article hero ===== */
+  .article-hero{
+    position:relative;
+    background: linear-gradient(180deg, var(--forest-deep), var(--forest) 75%, var(--forest-soft));
+    color: var(--white);
+    padding: 70px 32px 64px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero-wrap{ max-width:760px; margin:0 auto; position:relative; z-index:2; }
+  .kicker-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.35);
+    color: var(--blue);
+    padding:6px 14px;
+    border-radius:100px;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .kicker-pill::before{ content:"●"; color:var(--pink); font-size:.6rem; }
+  .stamp{
+    display:inline-flex; align-items:center; justify-content:center;
+    background: var(--pink);
+    color: var(--brown-deep);
+    font-weight:700;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:7px 16px;
+    border-radius:6px;
+    transform: rotate(-3deg);
+    box-shadow:0 3px 0 var(--pink-deep);
+    margin-bottom:20px;
+  }
+  .article-hero h1{
+    font-size: clamp(2.1rem, 5vw, 3.2rem);
+    line-height:1.12;
+    margin-bottom:20px;
+  }
+  .article-hero p.sub{
+    font-size:1.08rem;
+    color: rgba(255,255,255,.88);
+    max-width:58ch;
+    margin:0 auto;
+  }
+  .hero-meta{
+    margin-top:26px;
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    color: rgba(255,255,255,.65);
+    font-size:.85rem;
+  }
+  .hero-dot{ position:absolute; border-radius:50%; opacity:.55; }
+
+  /* ===== article body ===== */
+  .article{ max-width:720px; margin:0 auto; padding:64px 32px 20px; }
+  .article h2{
+    font-size:1.6rem;
+    color: var(--brown-deep);
+    margin:52px 0 14px;
+  }
+  .article h2 .num{
+    display:block;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:.78rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color: var(--blue-deep);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .article p{ font-size:1.02rem; color:#3a3128; margin-bottom:16px; }
+  .article ul{ margin:0 0 16px; padding-left:20px; }
+  .article li{ margin-bottom:8px; font-size:1.02rem; color:#3a3128; }
+
+  .pullcard{
+    background: var(--blue-pale);
+    border-left:4px solid var(--blue-deep);
+    border-radius:14px;
+    padding:20px 24px;
+    margin:26px 0;
+  }
+  .pullcard.pink{ background: var(--pink-pale); border-left-color: var(--pink-deep); }
+  .pullcard.gold{ background: var(--forest-pale); border-left-color: var(--gold); }
+  .pullcard .label{
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color: var(--blue-deep);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .pullcard.pink .label{ color: var(--pink-deep); }
+  .pullcard.gold .label{ color: var(--brown-warm); }
+  .pullcard p{ margin:0; color: var(--brown-rich); font-size:.98rem; }
+
+  .divider{ border:none; border-top:1px dashed rgba(43,24,16,.18); margin:44px 0; }
+
+  /* ===== the three buckets ===== */
+  .buckets{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:26px 0; }
+  .bucket{
+    border-radius:18px;
+    padding:24px 20px;
+    text-align:center;
+  }
+  .bucket.b-blue{ background: var(--blue-pale); }
+  .bucket.b-pink{ background: var(--pink-pale); }
+  .bucket.b-gold{ background: var(--forest-pale); }
+  .bucket .pct{
+    font-family:'Fraunces', serif; font-weight:800; font-size:2.2rem;
+  }
+  .bucket.b-blue .pct{ color: var(--blue-deep); }
+  .bucket.b-pink .pct{ color: var(--pink-deep); }
+  .bucket.b-gold .pct{ color: var(--forest-deep); }
+  .bucket .name{ font-weight:700; font-size:.92rem; color: var(--brown-deep); margin:6px 0 4px; }
+  .bucket .desc{ font-size:.82rem; color: var(--brown-warm); }
+
+  /* ===== checklist ===== */
+  .checklist-title{ font-size:1.5rem; color: var(--brown-deep); margin:48px 0 18px; }
+  .check-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .check-card{
+    background:#fff;
+    border:1px solid var(--forest-pale);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 6px 0 rgba(43,24,16,.05), 0 10px 24px rgba(43,24,16,.05);
+  }
+  .check-num{
+    width:30px; height:30px; border-radius:50%;
+    background: var(--blue-pale); color: var(--blue-deep);
+    font-family:'Fraunces', serif; font-weight:700; font-size:.9rem;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:14px;
+  }
+  .check-num.p{ background: var(--pink-pale); color: var(--pink-deep); }
+  .check-num.g{ background: var(--forest-pale); color: var(--forest-deep); }
+  .check-card h3{ font-size:1.02rem; color: var(--brown-deep); margin-bottom:8px; }
+  .check-card p{ font-size:.88rem; color: var(--brown-warm); margin:0; }
+
+  /* ===== closing note ===== */
+  .note{
+    background: var(--forest-pale);
+    border:2px solid var(--forest);
+    border-radius:24px;
+    padding:44px;
+    position:relative;
+    margin:56px 0 8px;
+  }
+  .note::before{
+    content:""; position:absolute; inset:8px;
+    border:1px dashed var(--blue); border-radius:16px; pointer-events:none;
+  }
+  .note p{ color: var(--brown-rich); font-size:1rem; margin:0; position:relative; }
+  .note .sign{
+    margin-top:14px; font-family:'Fraunces', serif; font-style:italic;
+    color: var(--forest-deep); font-size:1rem; position:relative;
+  }
+
+  /* ===== footer (matches homepage) ===== */
+  footer{ background: var(--forest-deep); color: rgba(255,255,255,.75); padding:56px 32px 30px; margin-top:40px; }
+  .foot-wrap{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap:36px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    padding-bottom:36px; margin-bottom:22px;
+  }
+  footer h4{ color: var(--gold-light); font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:16px;}
+  footer ul{ list-style:none; }
+  footer li{ margin-bottom:10px; font-size:.88rem; }
+  footer li a:hover{ color: var(--pink); }
+  .foot-bottom{
+    max-width:1180px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:.8rem; color: rgba(255,255,255,.55); flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width:900px){
+    nav.links{ display:none; }
+    .check-grid{ grid-template-columns:1fr; }
+    .buckets{ grid-template-columns:1fr; }
+    .foot-wrap{ grid-template-columns:1fr 1fr; }
+  }
+
+  a:focus-visible, input:focus-visible{ outline:3px solid var(--forest); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a class="logo" href="index.html">
+      <svg class="leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6 2 3 7 3 12C3 17 7 21 12 21C12 21 12 12 12 2Z" fill="currentColor" opacity="0.9"/>
+        <path d="M12 2C18 2 21 7 21 12C21 17 17 21 12 21" stroke="currentColor" stroke-width="1.4" fill="none"/>
+      </svg>
+      Master Your Finances
+    </a>
+    <nav class="links">
+      <a href="index.html#read">Read</a>
+      <a href="index.html#numbers">Numbers</a>
+      <a href="index.html#topics">Topics</a>
+      <a href="index.html#note">Newsletter</a>
+    </nav>
+    <a class="nav-cta" href="index.html#note">Join free</a>
+  </div>
+</header>
+
+<section class="article-hero">
+  <div class="hero-dot" style="top:14%; left:8%; width:12px; height:12px; background:var(--blue);"></div>
+  <div class="hero-dot" style="top:60%; right:10%; width:16px; height:16px; background:var(--gold-light);"></div>
+  <div class="hero-dot" style="bottom:16%; left:16%; width:9px; height:9px; background:var(--pink);"></div>
+  <div class="hero-wrap">
+    <div class="kicker-pill">Foundations · 5 min read</div>
+    <div class="stamp">Budgeting</div>
+    <h1>Build a Budget You'll Actually Stick With</h1>
+    <p class="sub">Forget the 47-tab spreadsheet. Three categories, one rule, and ten minutes a week is all it really takes.</p>
+    <div class="hero-meta">
+      <span>Budgeting</span>
+      <span>·</span>
+      <span>No spreadsheet required</span>
+    </div>
+  </div>
+</section>
+
+<article class="article">
+
+  <p>Somewhere out there is a spreadsheet with 47 tabs, color-coded categories for "miscellaneous miscellaneous," and a formula error that's been silently wrong since March. If that's your idea of budgeting, no wonder it never stuck. A budget doesn't need to track everything perfectly — it needs to be simple enough that you'll actually keep doing it in month four, not just week one.</p>
+
+  <hr class="divider">
+
+  <h2><span class="num">01 — Why Budgets Fail</span>It's not a willpower problem</h2>
+  <p>Most budgets don't fail because people lack discipline. They fail because the system was too complicated to maintain. Twenty categories, manual entry for every purchase, an app you forget to open — eventually life gets busy and the whole thing quietly dies. The fix isn't more discipline. It's a system with so little friction that skipping it feels harder than doing it.</p>
+
+  <h2><span class="num">02 — Three Categories</span>All you actually need to track</h2>
+  <p>Forget granular categories for coffee, rideshares, and streaming subscriptions separately. Almost everything you spend fits into three buckets:</p>
+
+  <div class="buckets">
+    <div class="bucket b-blue">
+      <div class="pct">50%</div>
+      <div class="name">Needs</div>
+      <div class="desc">Rent, groceries, utilities, minimum debt payments</div>
+    </div>
+    <div class="bucket b-pink">
+      <div class="pct">30%</div>
+      <div class="name">Wants</div>
+      <div class="desc">Dinners out, travel, subscriptions, hobbies</div>
+    </div>
+    <div class="bucket b-gold">
+      <div class="pct">20%</div>
+      <div class="name">Future You</div>
+      <div class="desc">Savings, investing, extra debt payoff</div>
+    </div>
+  </div>
+
+  <p>These percentages are a starting point, not a law. If rent eats 45% of your income on its own, that's real — the other buckets just flex around it. What matters is having three honest totals instead of zero.</p>
+
+  <div class="pullcard pink">
+    <div class="label">Reframe it</div>
+    <p>You're not tracking every latte. You're tracking three numbers, once a week, so you always know roughly where you stand.</p>
+  </div>
+
+  <h2><span class="num">03 — One Rule</span>Automate before you can talk yourself out of it</h2>
+  <p>The single highest-leverage move in budgeting is paying your "Future You" bucket automatically, on payday, before you ever see the money in your checking account. Willpower is a limited resource by the end of a long week — automation doesn't get tired.</p>
+  <p>Set up a recurring transfer to a savings or investing account for the day after payday. Whatever's left in checking is what you actually have to work with for needs and wants. You stop having to decide to save every single time, because the decision only had to be made once.</p>
+
+  <div class="pullcard">
+    <div class="label">The one rule, restated</div>
+    <p>Pay Future You first, automatically. Everything else can be a little messy and it'll still work.</p>
+  </div>
+
+  <h2><span class="num">04 — Ten Minutes a Week</span>The only maintenance this needs</h2>
+  <p>Once a week — Sunday night, payday morning, whenever it'll actually happen — spend ten minutes glancing at your accounts. You're not building a report. You're just checking three things:</p>
+  <ul>
+    <li><strong>Did the automatic transfer go through?</strong> Confirm Future You got paid.</li>
+    <li><strong>Does anything look off?</strong> A surprise charge, a subscription you forgot about, a bill due sooner than expected.</li>
+    <li><strong>Roughly, how do the buckets feel?</strong> Not exact math — just a gut check on whether wants spending is creeping up.</li>
+  </ul>
+  <p>Ten minutes a week is under nine hours a year. That's the entire maintenance cost of a budget that actually works.</p>
+
+  <div class="pullcard gold">
+    <div class="label">If a week gets missed</div>
+    <p>Skip the guilt and just do next week's check-in. A budget you return to after missing a week still works fine. A budget you abandon after one missed week doesn't.</p>
+  </div>
+
+  <h2><span class="num">05 — Common Breakers</span>What actually derails this</h2>
+  <ul>
+    <li><strong>Irregular income:</strong> budget off your lowest typical month, and treat anything above that as a bonus to split between buckets.</li>
+    <li><strong>One big expense breaking the month:</strong> that's normal — let the Wants bucket absorb it and rebalance the following week rather than abandoning the system.</li>
+    <li><strong>Shared expenses with a partner or roommate:</strong> agree on one shared "Needs" number up front so it isn't renegotiated every month.</li>
+  </ul>
+
+  <h2 class="checklist-title">This week, do these three things</h2>
+  <div class="check-grid">
+    <div class="check-card">
+      <div class="check-num">1</div>
+      <h3>Split last month into three buckets</h3>
+      <p>Roughly sort where your money went — Needs, Wants, Future You — just to see your real starting point.</p>
+    </div>
+    <div class="check-card">
+      <div class="check-num p">2</div>
+      <h3>Automate one transfer</h3>
+      <p>Set a recurring transfer to savings or investing for the day after payday, even if it's small.</p>
+    </div>
+    <div class="check-card">
+      <div class="check-num g">3</div>
+      <h3>Pick your ten minutes</h3>
+      <p>Choose a specific day and time for your weekly check-in, and put it on a recurring calendar reminder.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <p>A budget that's 80% accurate and takes ten minutes a week beats a perfect one that takes two hours and gets abandoned by March. Simple isn't the lazy option here — it's the one that actually survives contact with real life.</p>
+    <p class="sign">— Money Mindset</p>
+  </div>
+
+</article>
+
+<footer>
+  <div class="foot-wrap">
+    <div>
+      <a class="logo" href="index.html" style="margin-bottom:14px; display:inline-flex;">
+        <svg class="leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:22px;height:22px;">
+          <path d="M12 2C6 2 3 7 3 12C3 17 7 21 12 21C12 21 12 12 12 2Z" fill="currentColor" opacity="0.9"/>
+        </svg>
+        Master Your Finances
+      </a>
+      <p style="max-width:280px; font-size:.88rem; margin-top:10px;">Straightforward writing about money, for people who'd rather feel in control of it than mystified by it.</p>
+    </div>
+    <div>
+      <h4>Topics</h4>
+      <ul>
+        <li><a href="index.html#topics">Investing</a></li>
+        <li><a href="index.html#topics">Budgeting</a></li>
+        <li><a href="index.html#topics">Debt</a></li>
+        <li><a href="index.html#topics">Taxes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Write for us</a></li>
+        <li><a href="#">Archive</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Stay in touch</h4>
+      <ul>
+        <li><a href="index.html#note">Newsletter</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Master Your Finances. Not financial advice, just good conversation.</span>
+    <span>Made with a little too much coffee ☕</span>
+  </div>
+</footer>
+
+</body>
+</html>
